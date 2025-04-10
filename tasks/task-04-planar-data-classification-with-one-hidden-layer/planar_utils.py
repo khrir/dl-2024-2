@@ -64,3 +64,19 @@ def load_extra_datasets():
     no_structure = np.random.rand(N, 2), np.random.rand(N, 2)
     
     return noisy_circles, noisy_moons, blobs, gaussian_quantiles, no_structure
+
+if __name__ == "__main__":
+    X, Y = load_planar_dataset()
+
+    # create a csv file with the dataset
+    np.savetxt("planar_dataset.csv", np.c_[X.T, Y.T], delimiter=",", header="x1,x2,y", comments="")
+    
+
+    # plt.scatter(X[0, :], X[1, :], c=Y, s=40, cmap=plt.cm.Spectral)
+    # plt.show()
+    
+    # datasets = load_extra_datasets()
+    # for dataset in datasets:
+    #     X, Y = dataset
+    #     plt.scatter(X[:, 0], X[:, 1], c=Y, s=40, cmap=plt.cm.Spectral)
+    #     plt.show()
